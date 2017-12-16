@@ -1,0 +1,8 @@
+# 开启 rewrite 功能
+Options +FollowSymlinks
+RewriteEngine on
+
+# 如果访问的文件或目录不是真实存在，分发请求至 index.php
+
+RewriteRule ^demo/getnew/([0-9]+)$   index.php/demo/getnew?id=$1 [nc,qsa]
+RewriteRule ^demo/(\S+)$   index.php/demo/$1 [nc,qsa]
