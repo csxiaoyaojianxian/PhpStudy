@@ -5,14 +5,14 @@
  * @Author: victorsun
  * @Date:   2017-07-11 15:45:02
  * @Last Modified by:   sunshine
- * @Last Modified time: 2018-02-21 21:03:03
+ * @Last Modified time: 2017-12-18 14:43:59
  */
 
 /*
  * 加载常量
  */
 define(__DIR__, dirname(__FILE__)); // 为 PHP 5.2 提供支持
-define('APP_PATH', __DIR__ . '/vsf/'); // 应用目录为当前目录
+define('APP_PATH', __DIR__ . '/'); // 应用目录为当前目录
 require(APP_PATH . 'lib/constants.php');
 
 // 加载配置文件
