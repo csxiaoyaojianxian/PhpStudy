@@ -10,3 +10,6 @@ require语法结构
 	举例：require “include/conn.php”
 注意：include和require都是包含并运行文件，但是，是有区别的。如果包含的文件不存在，include将报一个警告错误,脚本继续向下运行。而require将报致命错误，脚本将立即终止执行。
 */
+
+$config = require $_SERVER['DOCUMENT_ROOT'].'/file/config.php';
+print_r($_SERVER['DOCUMENT_ROOT']);

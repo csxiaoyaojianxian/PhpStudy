@@ -18,6 +18,9 @@ if(!$link)
 }
 
 //(2)选择当前数据库
+// 方法1
+mysql_query('use `db_name`');
+// 方法2
 if(!mysql_select_db($db_name))
 {
     echo "选择数据库{$db_name}失败！" . mysql_error();
