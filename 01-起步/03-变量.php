@@ -1,9 +1,41 @@
 <?php
 
+/**
+ * 变量作用域
+ */
+// * 1、JS
+// 全局变量：在函数外定义的变量，可以直接在函数内使用，网页执行完毕销毁
+// 局部变量：在函数内定义的变量，函数执行完毕销毁
+// * 2、PHP
+// 超全局变量：在函数内或函数外使用，网页执行完毕销毁。如：$_GET、$_POST
+// 全局变量：即在函数外定义的变量，在函数内不能使用，网页执行完毕销毁
+// 局部变量：即在函数内定义的变量，函数执行完毕销毁
+// * 3、在局部作用域中访问全局变量——global关键字
+// 在函数内引用全局变量
+// global只能在函数内部使用
+// global只能引用全局变量，而不能一边引用一边赋值
+// * 4、$GLOBALS超全局变量数组
+// $GLOBALS是一个超全局变量数组
+// $GLOBALS该数组中包含：$_GET、$_POST、$_COOKIE、$_FILES
+$name = "csxiaoyao";
+function show(){
+	// 引用函数外全局变量并修改
+	global $name;
+	$name = "sunshine";
+	echo $name;
+	// 使用$GLOBALS超全局变量数组
+	$GLOBALS['hobby'] = "sleep";
+	echo $GLOBALS['hobby'];
+}
+show();
+echo $name; // sunshine
+print_r($GLOBALS);
+unset($GLOBALS['hobby']);
+print_r($GLOBALS);
+
 /*
 PHP变量名前要加”$”符号，只是一个PHP变量的标识符，它不是变量名的一部分。如：$name
 PHP中的关键字也可以作为变量名称。如：$break、$true、$for
-
 */
 
 // 构建输出结果
@@ -27,7 +59,9 @@ if(isset($name)){
 // 【 unset() 删除变量 】
 // 释放给定的变量、释放空间
 // void unset ( mixed $var [, mixed $... ] )
-
+// 静态变量不能用unset()，需要赋值null
+static $a = 1;
+$a = null;
 
 // 【 打印 】
 // var_dump() 显示变量的类型和值

@@ -20,3 +20,9 @@ header("content-type:text/html;charset=utf-8")
   如果只有一行PHP代码，可以省略分号
   多行PHP语句代码，最后一行的分号可以省略
   各种PHP的语法结构不加分号。如：for、if、switch、while、foreach等
+
+PHP脚本执行大致顺序
+1、语法检查
+2、将函数代码调入内存(代码)
+3、各种变量声明空间
+4、程序的运行。调用函数、变量赋值

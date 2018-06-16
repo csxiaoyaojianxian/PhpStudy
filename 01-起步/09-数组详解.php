@@ -109,3 +109,137 @@ foreach ($arr as $key=>$value) {
 	echo $key, $value;
 }
 
+/**
+ * 【 数组操作函数 】
+ */
+// 【 each() 】
+// array each ( array &$array )
+// 返回 array 数组中当前指针位置的键／值对并向前移动数组指针。键值对被返回为四个单元的数组，单元 0 和 key 包含有数组单元的键名(下标)，1 和 value 包含有数据，如果内部指针越过了数组的末端，则 each() 返回 FALSE
+$result = each($arr);
+var_dump($result);
+$result = each($arr);
+var_dump($result);
+/*
+array(4) {
+ [1]=>string(9) "csxiaoyao"
+ ["value"]=>string(9) "csxiaoyao"
+ [0]=>string(4) "name"
+ ["key"]=>string(4) "name"
+}
+array(4) {
+ [1]=>int(25)
+ ["value"]=>int(25)
+ [0]=>string(3) "age"
+ ["key"]=>string(3) "age"
+}
+ */
+
+// 【 list() 】
+// 把数组中的值赋给一些变量，数组必须是枚举数组
+// array list ( mixed $varname [, mixed $... ] )
+$arr = array('csxiaoyao',25,100);
+list($name,$age) = $arr;
+var_dump($name,$age);
+/*
+string(9) "csxiaoyao"
+int(25)
+ */
+
+// 【 使用while、list()、each()遍历数组 】
+$arr = array(
+	"name" => "csxiaoyao",
+	"age"  => 25,
+	"score"=> 100
+);
+while(list($key,$value)=each($arr)){
+	echo $key,$value;
+}
+
+/**
+ * 【 数组排序 】
+ */
+
+// sort()：对数组元素的值升序排列，不保留索引关系
+$arr = array(
+	'c' => 10,
+	'd' => 30,
+	'a' => 20,
+	'b' => 40
+);
+sort($arr);
+var_dump($arr);
+/*
+array(4) {
+ [0]=>int(10)
+ [1]=>int(20)
+ [2]=>int(30)
+ [3]=>int(40)
+}
+ */
+// rsort()：对数组元素的值降序排列，不保留索引关系
+$arr = array(
+	'c' => 10,
+	'd' => 30,
+	'a' => 20,
+	'b' => 40
+);
+rsort($arr);
+var_dump($arr);
+/*
+array(4) {
+ [0]=>int(40)
+ [1]=>int(30)
+ [2]=>int(20)
+ [3]=>int(10)
+}
+ */
+// asort()：对数组元素的值升序排列，保留索引关系
+$arr = array(
+	'c' => 10,
+	'd' => 30,
+	'a' => 20,
+	'b' => 40
+);
+asort($arr);
+var_dump($arr);
+/*
+array(4) {
+ ["c"]=>int(10)
+ ["a"]=>int(20)
+ ["d"]=>int(30)
+ ["b"]=>int(40)
+}
+ */
+// arsort()：对数组元素的值降序排列，保留索引关系
+$arr = array(
+	'c' => 10,
+	'd' => 30,
+	'a' => 20,
+	'b' => 40
+);
+arsort($arr);
+// ksort()：数组按键名(下标)升序排列，保留索引关系
+$arr = array(
+	'c' => 10,
+	'd' => 30,
+	'a' => 20,
+	'b' => 40
+);
+ksort($arr);
+var_dump($arr);
+/*
+array(4) {
+ ["a"]=>int(20)
+ ["b"]=>int(40)
+ ["c"]=>int(10)
+ ["d"]=>int(30)
+}
+ */
+// krsort()：数组按键名降序排列，保留索引关系
+$arr = array(
+	'c' => 10,
+	'd' => 30,
+	'a' => 20,
+	'b' => 40
+);
+krsort($arr);
