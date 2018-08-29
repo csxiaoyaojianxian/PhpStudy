@@ -35,7 +35,7 @@ $arr = array(1,2,'a',true);
 $arr = array(
 	'name' => 'csxiaoyao',
 	10     => 100,
-	20     => 'victorsun',
+	20     => 'csxiaoyao',
 	'sunshine',
 	'csxiaoyao'
 );
@@ -44,7 +44,7 @@ var_dump($arr);
 array(5) {
  ["name"]=>string(9) "csxiaoyao"
  [10]=>int(100)
- [20]=>string(9) "victorsun"
+ [20]=>string(9) "csxiaoyao"
  [21]=>string(8) "sunshine"
  [22]=>string(9) "csxiaoyao"
 }
