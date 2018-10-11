@@ -16,8 +16,7 @@ class TestMiddleware
     public function handle($request, Closure $next)
     {
         if(!session('uid')){
-            // 重定向
-            return redirect('/login');
+            return redirect('/login'); // 重定向
         }
         return $next($request);
     }

@@ -48,7 +48,6 @@ Route::get('/testrules/{name}/{age}', function($n,$a){
 
 // 路由到控制器方法
 Route::get('/test/fn', 'TestController@lst');
-Route::get('/user/lst', 'Test\UserController@lst');
 
 // 路由分组
 // Route::group
@@ -60,12 +59,15 @@ Route::any('foo',function(){
 });
 
 // 使用中间件
+Route::get('/setting', function () {
+    return '/setting, uid='.session('uid');
+})->middleware('login');
 Route::get('/login', function () {
     session(['uid'=>100]);
     return 'login登录页面';
 });
-Route::get('/setting', function () {
-    return 'setting路由...uid='.session('uid');
-})->middleware('login');
 
-
+// http请求
+Route::get('/user/add', 'Test\UserController@add');
+Route::post('/user/add', 'Test\UserController@add');
+Route::match(['get','post'],'/user/add','Test\UserController@add');
