@@ -25,3 +25,5 @@ var_dump($stu2);echo '<br>';//object(Student)#1 (1) { ["is_clone":"Student":priv
 
 $stu3=clone $stu1;
 var_dump($stu3);echo '<br>';//object(Student)#2 (1) { ["is_clone":"Student":private]=> bool(true) } 
+
+var_dump($stu3 instanceof Student);  // bool(true)
