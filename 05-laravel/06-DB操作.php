@@ -75,7 +75,7 @@ class TestController extends Controller
     }
 
     // 查询方法
-    public function select(){
+    public function select () {
     	$db = DB::table('member');
     	// 【 get 】查询全部数据
     	$data = $db -> get();
@@ -107,12 +107,21 @@ class TestController extends Controller
     }
 
     // 删除操作
-    public function del(){
+    public function del () {
     	$db = DB::table('member');
     	// 【delete】删除记录，返回受影响的行数
         $result = $db->where('id','<','3')->delete();
         dd($result);
         // 【truncate】清空整个数据表
         $db -> truncate();
+    }
+
+    // 执行SQL
+    public function runSql () {
+    	// 执行任意的 insert update delete 语句【 影响记录的语句使用statement语法 】
+        DB::statement("insert into member values(1,'cs',25,'sunjianfeng@csxiaoyao.com')");
+        // 执行任意的 select 语句
+        $res = DB::select("select * from member");
+        dd($res);
     }
 }
