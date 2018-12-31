@@ -42,15 +42,13 @@ Route::any('/test/path',function(){
 }) -> name('testName'); // 设置名为testName的路由
 
 // 路由群组
-Route::group(['prefix' => 'admin'], function () {
-    Route::get('test1', function ()    {
-        // 匹配 "/admin/test1" URL
-    });
-    Route::get('test2', function ()    {
-        // 匹配 "/admin/test2" URL
-    });
-    Route::get('test3', function ()    {
-        // 匹配 "/admin/test3" URL
+Route::group(['prefix' => 'home/test'], function () {
+	Route::get('add','TestController@add'); // 匹配 "/home/test/add" URL
+	Route::get('del','TestController@del');
+	Route::get('update','TestController@update');
+	Route::get('select','TestController@select');
+	Route::get('test',function(){
+        // 匹配 "/home/test/test" URL
     });
 });
 
