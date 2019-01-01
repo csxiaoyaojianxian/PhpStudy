@@ -32,11 +32,20 @@ class TestController extends Controller
     	// 获取除了指定的值，之外的值
     	dd(Input::except(['name']));
     	// 判断某个值存在与否（布尔值）
-    	dd(Input::has('gender'));
-    }
+		dd(Input::has('gender'));
+		echo Input::method(); // GET POST
+	}
+	
+	// 在laravel中不仅Input门面可以获取用户输入
+	// Request门面也可以获取用户输入
+	// 语法和Input一样，也存在get、all、only等方法
+	// 测试request获取数据
+	public function test2 (Request $request) {
+		dd($request->all());
+		dd($request->input('name'));
+		dd($request->only(['name','age']));
+		dd($request->except(['name','age']));
+		dd($request->has('name'));
+		dd($request->get('name'));
+	}
 }
-
-// 提示：
-// 在laravel中不仅Input门面可以获取用户输入
-// Request门面也可以获取用户输入
-// 语法和Input一样，也存在get、all、only等方法
