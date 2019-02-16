@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<h1>swoole-ws测试<h1>
+<p>
+    * 注意：访问前端页面需要启动http_server访问<br/>
+    * http://127.0.0.1:8888/ws_client.html
+</p>
+  <script>
+    var wsUrl = "ws://127.0.0.1:8812";
+
+    var websocket = new WebSocket(wsUrl);
+
+    // 实例对象的 onopen 属性
+    websocket.onopen = function(evt) {
+      websocket.send("hello-world");
+      console.log("ws-connected");
+    }
+
+    // 实例化 onmessage
+    websocket.onmessage = function(evt) {
+      console.log("ws-onmessage:" + evt.data);
+    }
+
+    // onclose
+    websocket.onclose = function(evt) {
+      console.log("ws-close");
+    }
+
+    // onerror
+    websocket.onerror = function(evt, e) {
+      console.log("ws-error:" + evt.data);
+    }
+  </script>
+</body>
+</html>
